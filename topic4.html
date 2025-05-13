@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>토큰이란? | LLM 활용 전략</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="slide-container">
+        <header class="slide-header">
+            <div class="logo">LLM 활용 전략</div>
+            <nav class="table-of-contents">
+                <ul>
+                    <li><a href="topic1.html">1. LLM이란?</a></li>
+                    <li><a href="topic2.html">2. 폐쇄쇄형 LLM 과 오픈소스 LLM</a></li>
+                    <li><a href="topic3.html">3. Dense LLM과 Reasoning Model</a></li>
+                    <li><a href="topic4.html">4. 토큰이란?</a></li>
+                    <li><a href="topic5.html">5. 프롬프트 엔지니어링의 중요성</a></li>
+                    <li><a href="topic6.html">6. LLM 잘 쓰는 마인드</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="slide-content-area">
+            <section id="intro" class="slide">
+                <div class="slide-inner">
+                    <h1>4. 토큰이란?</h1>
+                    <p>LLM에서 '토큰(Token)'은 텍스트를 처리하는 기본 단위로, 모델이 텍스트를 이해하고 생성하는 방식의 핵심</p>
+                </div>
+            </section>
+
+            <section id="definition" class="slide">
+                <div class="slide-inner">
+                    <h2>토큰의 정의: 작업기억(Working Memory)과의 비유</h2>
+                    <p>토큰은 LLM이 텍스트를 처리하는 기본 단위로, 인간의 '작업기억(Working Memory)'과 유사한 개념</p>
+                    <div class="typography-example">
+                        <div class="text-medium">인간 두뇌와 LLM의 병렬적 이해</div>
+                        <p><strong>인간의 작업기억:</strong> 전화번호나 쇼핑 목록과 같은 정보를 일시적으로 저장하고 처리하는 인지 시스템</p>
+                        <p><strong>LLM의 토큰:</strong> 모델이 한 번에 처리하고 기억할 수 있는, 제한된 크기의 텍스트 조각</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tokenization" class="slide">
+                <div class="slide-inner">
+                    <h2>토큰화(Tokenization): 작업기억의 정보 처리 방식</h2>
+                    <p>LLM은 텍스트를 토큰 단위로 분해하여 기억하고 분석하고 처리</p>
+                    <div class="typography-example">
+                        <div class="text-medium">토큰화 예시와 인간의 정보 처리 비교</div>
+                        <p>원문: "오늘 날씨가 정말 좋네요!"</p>
+                        <p>LLM 토큰화: ["오늘", " 날씨가", " 정말", " 좋", "네요", "!"]</p>
+                        <p>인간의 인지 과정: '오늘'(시간) + '날씨가'(주제) + '정말 좋네요!'(감정적 평가) 형태로 의미 단위 처리</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="token-count" class="slide">
+                <div class="slide-inner">
+                    <h2>토큰 수와 작업기억 용량</h2>
+                    <p>인간의 작업기억에 한계가 있듯이, LLM도 처리할 수 있는 정보량이 제한적적:</p>
+                    <ul>
+                        <li><strong>작업기억의 용량 제한:</strong> 인간이 한 번에 한정적인 정보만 기억할 수 있듯, LLM도 기억용량의 제한이 있음</li>
+                        <li><strong>정보 손실:</strong> 오래된 정보가 작업기억에서 사라지듯, 기억용량의 제한을 초과하면 초기 정보가 소실됨(초기 대화내용을 망각한 GPT)</li>
+                    </ul>
+                    <div class="typography-example">
+                        <div class="text-medium">모델별 '작업기억' 용량 비교</div>
+                        <ul>
+                            <li>GPT-4o: 약 12만4천 토큰 분량 입력 가능, 4,096 토큰 분량의 답변 생성 가능 (한글 기준으로 500자 기준 A4 3장 정도 분량량)</li>
+                            <li>Gemini 2.5: 약 100만 토큰 분량 입력 가능, 65,536 토큰 출력 (한글 기준으로 중단편 소설 1권 정도)
+                            </li>
+                        </ul>
+                        <p>최신 모델의 작업기억 용량은 급격히 증가하는 추세, 이는 마치 인간의 작업기억이 소설 한 권 전체를 한 번에 기억할 수 있는 수준으로 특히 Gemini 2.5의 백만 토큰 이상 처리 능력은 인간의 인지 능력을 크게 초월하는 수준</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="token-languages" class="slide">
+                <div class="slide-inner">
+                    <h2>언어별 토큰화 차이</h2>
+                    <p>언어에 따라 토큰화 효율성이 크게 상이이:</p>
+                    <ul>
+                        <li><strong>영어:</strong> 대체로 효율적 (1단어 ≈ 1.3 토큰)</li>
+                        <li><strong>한국어/중국어/일본어:</strong> 낮은 효율성 (동일 내용이 더 많은 토큰 소비)</li>
+                    </ul>
+                    <div class="typography-example">
+                        <div class="text-medium">언어별 토큰 효율성 비교</div>
+                        <p>"안녕하세요" = 2~3 토큰</p>
+                        <p>"Hello" = 1 토큰</p>
+                        <p>"你好" = 2 토큰</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="token-optimization" class="slide">
+                <div class="slide-inner">
+                    <h2>토큰 최적화: 작업기억 관리하기</h2>
+                    <p>작업기억에 많은 정보를 효율적으로 담는 전략:</p>
+                    <ol>
+                        <li><strong>핵심만 전달하기:</strong> 중요 정보만 선별하여 전달 (시험공부 시 핵심 내용만 요약하듯)</li>
+                        <li><strong>구조화하기:</strong> 정보를 구조화하여 전달 (정리된 노트가 기억하기 쉬운 것처럼)</li>
+                    </ol>
+                    <div class="typography-example">
+                        <div class="text-medium">실제 적용 예:</div>
+                        <p><strong>비효율적:</strong> "사용자는 제품을 구매할 때 제품의 가격과 제품의 품질, 그리고 제품의 디자인을 고려합니다."</p>
+                        <p><strong>효율적:</strong> "사용자는 구매 시 가격, 품질, 디자인을 고려한다다."</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 

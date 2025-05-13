@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폐쇄형 LLM 과 오픈소스 LLM | LLM 활용 전략</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="slide-container">
+        <header class="slide-header">
+            <div class="logo">LLM 활용 전략</div>
+            <nav class="table-of-contents">
+                <ul>
+                    <li><a href="topic1.html">1. LLM이란?</a></li>
+                    <li><a href="topic2.html">2. 폐쇄형 LLM 과 오픈소스 LLM</a></li>
+                    <li><a href="topic3.html">3. Dense LLM과 Reasoning Model</a></li>
+                    <li><a href="topic4.html">4. 토큰이란?</a></li>
+                    <li><a href="topic5.html">5. 프롬프트 엔지니어링의 중요성</a></li>
+                    <li><a href="topic6.html">6. LLM 잘 쓰는 마인드</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="slide-content-area">
+            <section id="intro" class="slide">
+                <div class="slide-inner">
+                    <h1>2. 폐쇄형 LLM과 오픈소스 LLM</h1>
+                    <p>LLM은 개발 및 배포 방식에 따라 크게 폐쇄형(Closed-source)과 오픈소스(Open-source) 모델로 구분</p>
+                </div>
+            </section>
+
+            <section id="closed-source" class="slide">
+                <div class="slide-inner">
+                    <h2>폐쇄형 LLM의 특징</h2>
+                    <p>폐쇄형 LLM은 기업이나 조직이 독점적으로 개발하고 내부 구조나 코드를 공개하지 않는 모델</p>
+                    <ul class="feature-list">
+                        <li>API 또는 서비스 형태로 제공</li>
+                        <li>모델 가중치와 아키텍처가 비공개</li>
+                        <li>일반적으로 대규모 컴퓨팅 자원으로 학습</li>
+                    </ul>
+                    <p>대표적인 예시:</p>
+                    <ul>
+                        <li>OpenAI의 GPT 시리즈</li>
+                        <li>Anthropic의 Claude 시리즈</li>
+                        <li>Google의 Gemini 시리즈즈</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="open-source" class="slide">
+                <div class="slide-inner">
+                    <h2>오픈소스 LLM의 특징</h2>
+                    <p>오픈소스 LLM은 코드와 모델 가중치가 공개되어 누구나 자유롭게 사용, 수정, 배포할 수 있는 모델</p>
+                    <ul class="feature-list">
+                        <li>모델 가중치와 아키텍처 공개</li>
+                        <li>커뮤니티 기반 개발 및 개선</li>
+                        <li>자유로운 활용 및 수정 가능</li>
+                    </ul>
+                    <p>대표적인 예시:</p>
+                    <ul>
+                        <li>Meta의 Llama 시리즈</li>
+                        <li>Microsoft의 Phi-4</li>
+                        <li>LG의 엑사원 시리즈</li>
+                        <li>Google의 Gemma 시리즈</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="comparison" class="slide">
+                <div class="slide-inner">
+                    <h2>폐쇄형 vs 오픈소스 LLM 비교</h2>
+                    <div class="typography-example">
+                        <div class="text-medium">주요 차이점</div>
+                        <table border="1" style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+                            <tr>
+                                <th>비교 항목</th>
+                                <th>폐쇄형 LLM</th>
+                                <th>오픈소스 LLM</th>
+                            </tr>
+                            <tr>
+                                <td>접근성</td>
+                                <td>API 또는 서비스로 제한적 접근</td>
+                                <td>완전한 접근 가능</td>
+                            </tr>
+                            <tr>
+                                <td>맞춤화</td>
+                                <td>제한적 또는 불가능</td>
+                                <td>완전한 맞춤화 가능</td>
+                            </tr>
+                            <tr>
+                                <td>비용</td>
+                                <td>사용량 기반 과금</td>
+                                <td>주로 초기 인프라 비용만 발생</td>
+                            </tr>
+                            <tr>
+                                <td>보안 및 개인정보</td>
+                                <td>데이터가 외부로 전송됨</td>
+                                <td>로컬 환경에서 처리 가능</td>
+                            </tr>
+                            <tr>
+                                <td>성능</td>
+                                <td>일반적으로 더 우수함</td>
+                                <td>점차 격차 감소 중</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section id="licenses" class="slide">
+                <div class="slide-inner">
+                    <h2>오픈소스 LLM 라이센스의 중요성</h2>
+                    <p>오픈소스 LLM을 상용화 목적으로 사용할 때는 라이센스 조건을 정확히 이해하는 것이 매우 중요</p>
+                    <p><strong>주요 오픈소스 LLM 라이센스 유형:</strong></p>
+                    <table border="1" style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+                        <tr>
+                            <th>라이센스</th>
+                            <th>특징</th>
+                            <th>상업적 사용 적합성</th>
+                        </tr>
+                        <tr>
+                            <td>MIT 라이센스</td>
+                            <td>매우 관대한 라이센스, 최소한의 제약</td>
+                            <td>매우 적합</td>
+                        </tr>
+                        <tr>
+                            <td>Apache 2.0</td>
+                            <td>특허 조항 포함, 명시적 특허 권한 부여</td>
+                            <td>매우 적합</td>
+                        </tr>
+                        <tr>
+                            <td>GPL(GNU General Public License)</td>
+                            <td>카피레프트 조항: 파생 작업 공개 필요</td>
+                            <td>제한적 (코드 공개 의무)</td>
+                        </tr>
+                        <tr>
+                            <td>커스텀/사용자 정의 라이센스</td>
+                            <td>특정 조건 부여 (예: Meta의 Llama 2 라이센스)</td>
+                            <td>조건에 따라 다름</td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+
+            <section id="significance" class="slide">
+                <div class="slide-inner">
+                    <h2>창업자에게 오픈소스 LLM의 의미</h2>
+                    <ul class="feature-list">
+                        <li><strong>비용 효율성:</strong> 고가의 API 구독료 없이 자체 서버에서 모델 운영 가능</li>
+                        <li><strong>맞춤형 솔루션:</strong> 특정 비즈니스 분야 데이터로 모델 튜닝 가능 (예: 의료 용어에 특화된 모델, 법률 문서 분석에 최적화된 모델)</li>
+                        <li><strong>데이터 주권:</strong> 민감한 데이터가 외부 서버로 전송되지 않아 개인정보 보호 강화</li>
+                        <li><strong>차별화 요소:</strong> 독자적인 AI 기능으로 시장에서 경쟁 우위 확보 가능</li>
+                        <li><strong>기술적 자율성:</strong> 외부 API 정책 변경이나 서비스 중단에 영향받지 않는 안정적 운영</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="hardware-considerations" class="slide">
+                <div class="slide-inner">
+                    <h2>로컬 LLM 구동을 위한 하드웨어 선택</h2>                    
+                    <div class="typography-example">
+                        <div class="text-medium">Windows PC vs Apple Silicon Mac 비교</div>
+                        <table border="1" style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+                            <tr>
+                                <th style="width: 25%">비교 항목</th>
+                                <th style="width: 37.5%">Windows PC</th>
+                                <th style="width: 37.5%">Apple Silicon Mac</th>
+                            </tr>
+                            <tr>
+                                <td><strong>메모리 구조</strong></td>
+                                <td>
+                                    <ul>
+                                        <li>LLM 구동에는 그래픽카드의 VRAM이 필요</li>
+                                        <li>시스템 메모리(RAM)는 LLM 구동에 직접 활용 불가</li>
+                                        <li>대용량 VRAM을 갖춘 고가의 그래픽카드 필수</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>통합 메모리 구조로 전체 메모리를 LLM에 활용 가능</li>
+                                        <li>별도 그래픽카드 없이 시스템 메모리 전체를 LLM에 사용</li>
+                                        <li>메모리 공유로 효율적인 자원 활용</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>비용 효율성</strong></td>
+                                <td>
+                                    <ul>
+                                        <li>32GB VRAM 그래픽카드만 수백만원 소요</li>
+                                        <li>고성능 LLM 구동을 위한 초기 비용 매우 높음</li>
+                                        <li>대형 모델 구동 시 추가 비용 부담 큼</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>동일 용량 대비 비용이 1/3 수준으로 저렴</li>
+                                        <li>고가의 그래픽카드 없이 대형 모델 구동 가능</li>
+                                        <li>32GB 메모리 Mac Mini는 그래픽카드 한 개 가격으로 구매 가능</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <p><strong>Mac의 통합 메모리가 제공하는 핵심 이점:</strong></p>
+                    <ul>
+                        <li>고가의 그래픽카드 없이도 대형 LLM 모델 구동 가능</li>
+                        <li>동일 성능 대비 절반 이하의 비용으로 시스템 구축</li>
+                        <li>메모리 활용 효율이 높아 더 큰 모델 탑재 가능</li>
+                        <li>전력 소모와 발열이 적어 사용 환경이 쾌적</li>
+                        <li>간편한 설정으로 초보자도 쉽게 LLM 구동 가능</li>
+                    </ul>
+                </div>
+            </section>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 

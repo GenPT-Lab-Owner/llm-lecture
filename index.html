@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스타트업 LLM 활용전략</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'SF Pro Display', 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #fff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #1d1d1f;
+        }
+        
+        .cover-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            position: relative;
+            background-color: #fff;
+            overflow: hidden;
+            padding-top: 60px;
+        }
+        
+        .cover-content {
+            text-align: center;
+            z-index: 1;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .title {
+            font-size: 56px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #5E8AD1, #B66D99, #DB5F72);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            line-height: 1.1;
+        }
+        
+        .subtitle {
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: #1d1d1f;
+        }
+        
+        .description {
+            font-size: 18px;
+            color: #86868b;
+            margin-bottom: 4rem;
+            font-weight: normal;
+        }
+        
+        .phone-container {
+            margin-top: 30px;
+            position: relative;
+            width: 300px;
+            margin: 0 auto;
+            filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
+        }
+        
+        .phone-image {
+            width: 100%;
+            display: block;
+            margin: 0 auto;
+            border-radius: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .start-button {
+            position: relative;
+            z-index: 2;
+            background-color: #0071e3;
+            color: white;
+            border: none;
+            padding: 12px 22px;
+            font-size: 17px;
+            font-weight: 400;
+            border-radius: 980px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 2rem;
+        }
+        
+        .start-button:hover {
+            background-color: #0077ed;
+        }
+        
+        @media (max-width: 768px) {
+            .title {
+                font-size: 40px;
+            }
+            .subtitle {
+                font-size: 24px;
+            }
+            .description {
+                font-size: 16px;
+            }
+            .phone-container {
+                width: 230px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cover-container">
+        <div class="cover-content">
+            <h1 class="title">스타트업 LLM 활용전략</h1>
+            <p class="subtitle">Garbage in, Garbage out</p>
+            <p class="description">결국 문제는 우리</p>
+            
+            <div class="phone-container">
+                <svg class="phone-image" viewBox="0 0 300 600" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Phone body with rounded white frame -->
+                    <rect x="8" y="8" width="284" height="584" rx="42" fill="white" />
+                    <rect x="10" y="10" width="280" height="580" rx="40" fill="#1d1d1f" />
+                    
+                    <!-- Screen -->
+                    <rect x="20" y="20" width="260" height="560" rx="30" fill="#141728" />
+                    
+                    <!-- Dynamic wallpaper gradient -->
+                    <defs>
+                        <linearGradient id="screenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#461a3e" />
+                            <stop offset="50%" style="stop-color:#8a2e5c" />
+                            <stop offset="100%" style="stop-color:#1e3c60" />
+                        </linearGradient>
+                    </defs>
+                    <rect x="20" y="20" width="260" height="560" rx="30" fill="url(#screenGradient)" />
+                    
+                    <!-- Notch -->
+                    <rect x="90" y="20" width="120" height="25" rx="12" fill="#1d1d1f" />
+                    <circle cx="150" cy="32" r="5" fill="#333" />
+                    
+                    <!-- Time -->
+                    <text x="150" y="70" font-family="SF Pro Display, sans-serif" font-size="28" fill="white" text-anchor="middle" font-weight="500">9:41</text>
+                    
+                    <!-- Status bar -->
+                    <text x="40" y="70" font-family="SF Pro Display, sans-serif" font-size="12" fill="white" font-weight="400">9월 (월)</text>
+                    <circle cx="260" cy="70" r="5" fill="white" />
+                    
+                    <!-- LLM conversation UI -->
+                    <rect x="35" y="100" width="230" height="400" rx="15" fill="rgba(30, 30, 30, 0.5)" />
+                    
+                    <!-- LLM messages -->
+                    <rect x="45" y="130" width="180" height="40" rx="18" fill="#333333" />
+                    <text x="55" y="155" font-family="SF Pro Display, sans-serif" font-size="12" fill="white">세종대왕에 대해 알려줘</text>
+                    
+                    <rect x="90" y="180" width="175" height="75" rx="18" fill="#4676F0" />
+                    <foreignObject x="100" y="190" width="155" height="55">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: 'SF Pro Display', sans-serif; font-size: 12px; color: white; word-wrap: break-word; line-height: 1.3;">
+                            세종대왕은 조선 제4대 왕으로 한글을 창제하셨습니다. 그는 특히 신하들과 함께 새로운 기술을 연구하는 것을 좋아하셨죠.
+                        </div>
+                    </foreignObject>
+                    
+                    <rect x="45" y="270" width="210" height="40" rx="18" fill="#333333" />
+                    <text x="55" y="295" font-family="SF Pro Display, sans-serif" font-size="12" fill="white">세종대왕이 화를 낸 적이 있나요?</text>
+                    
+                    <rect x="90" y="320" width="175" height="130" rx="18" fill="#4676F0" />
+                    <foreignObject x="100" y="330" width="155" height="110">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: 'SF Pro Display', sans-serif; font-size: 12px; color: white; word-wrap: break-word; line-height: 1.3;">
+                            네, 유명한 사건으로 1435년 세종대왕이 맥북을 집어던진 사건이 있습니다. 신하들이 OS 업데이트 후 한글 입력기가 작동하지 않는다고 불평하자 화를 내셨죠. "내가 한글 만들었는데 이게 뭐냐"라고 하셨답니다.
+                        </div>
+                    </foreignObject>
+                    
+                    <rect x="45" y="460" width="140" height="40" rx="18" fill="#333333" />
+                    <text x="55" y="485" font-family="SF Pro Display, sans-serif" font-size="12" fill="white">그게 말이 돼?</text>
+                    
+                    <!-- Input field -->
+                    <rect x="35" y="510" width="230" height="50" rx="25" fill="rgba(50, 50, 50, 0.8)" />
+                    <text x="65" y="541" font-family="SF Pro Display, sans-serif" font-size="14" fill="#999" text-anchor="start">어떻게 도와드릴까요?</text>
+                    <circle cx="235" cy="535" r="18" fill="#4676F0" />
+                    <circle cx="235" cy="535" r="6" fill="white" />
+                    
+                    <!-- Home indicator -->
+                    <rect x="115" y="565" width="70" height="5" rx="2.5" fill="white" />
+                </svg>
+            </div>
+            
+            <a href="topic1.html" class="start-button">강의 시작하기</a>
+        </div>
+    </div>
+</body>
+</html> 

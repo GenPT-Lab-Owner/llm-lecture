@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>추론모델 답변 과정 개념도</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .diagram-container {
+            width: 800px;
+            height: 600px;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .columns {
+            display: flex;
+            justify-content: space-around;
+            height: 400px;
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 200px;
+        }
+        .box {
+            width: 160px;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .input {
+            height: 120px;
+            background-color: #e0f7e0;
+        }
+        .reasoning {
+            height: 50px;
+            background-color: #e0e0e0;
+        }
+        .output {
+            height: 80px;
+            background-color: #d1ecff;
+        }
+        .truncated {
+            height: 60px;
+            background-color: #ffcccc;
+        }
+        .arrow {
+            position: relative;
+            width: 100px;
+            height: 40px;
+        }
+        .context-window {
+            margin-top: 30px;
+            border-top: 2px dashed #999;
+            width: 100%;
+            text-align: left;
+            padding-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        .scissors {
+            position: absolute;
+            left: -20px;
+            top: -12px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="diagram-container">
+        <div class="header">
+            <div>Turn 1</div>
+            <div>Turn 2</div>
+            <div>Turn 3</div>
+        </div>
+        
+        <div class="columns">
+            <div class="column">
+                <div class="box input">Input</div>
+                <div class="box reasoning">Reasoning</div>
+                <div class="box output">Output</div>
+                <!-- 화살표 그리기는 SVG로 할 수 있지만 간단하게 표현 -->
+            </div>
+            
+            <svg width="100" height="400">
+                <path d="M0,100 C30,100 70,200 100,200" stroke="#666" fill="none" stroke-width="2"/>
+                <polygon points="95,200 100,205 95,210" fill="#666"/>
+            </svg>
+            
+            <div class="column">
+                <div class="box input">Input</div>
+                <div class="box reasoning">Reasoning</div>
+                <div class="box output">Output</div>
+            </div>
+            
+            <svg width="100" height="400">
+                <path d="M0,200 C30,200 70,300 100,300" stroke="#666" fill="none" stroke-width="2"/>
+                <polygon points="95,300 100,305 95,310" fill="#666"/>
+            </svg>
+            
+            <div class="column">
+                <div class="box input">Input</div>
+                <div class="box reasoning">Reasoning</div>
+                <div class="box output">Output</div>
+                <div class="box truncated">Truncated output</div>
+            </div>
+        </div>
+        
+        <div class="context-window">
+            <span class="scissors">✂</span>
+            Context window 128k tokens
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,447 @@
+/* 전체 페이지 스타일 - Apple 디자인 */
+:root {
+    --primary-color: #0071e3; /* Apple 블루 */
+    --secondary-color: #86868b; /* Apple 그레이 */
+    --text-color: #1d1d1f; /* Apple 텍스트 컬러 */
+    --light-gray: #f5f5f7; /* Apple 배경 그레이 */
+    --dark-gray: #86868b; /* Apple 다크 그레이 */
+    --highlight-color: #2997ff; /* Apple 하이라이트 블루 */
+    --success-color: #4cd964; /* Apple 그린 */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'SF Pro Display', 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    color: var(--text-color);
+    background-color: white;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 슬라이드 컨테이너 */
+.slide-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 헤더 스타일 - Apple 스타일 네비게이션 */
+.slide-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-color);
+    letter-spacing: -0.01em;
+}
+
+.table-of-contents ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.table-of-contents a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 400;
+    font-size: 14px;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.table-of-contents a:hover,
+.table-of-contents a.active {
+    color: var(--primary-color);
+}
+
+.table-of-contents a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.table-of-contents a:hover:after,
+.table-of-contents a.active:after {
+    transform: scaleX(1);
+}
+
+/* 슬라이드 콘텐츠 영역 */
+.slide-content-area {
+    flex-grow: 1;
+    padding: 20px 0;
+}
+
+/* 슬라이드 스타일 */
+.slide {
+    margin-bottom: 100px;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-inner {
+    max-width: 980px; /* Apple 웹사이트 기준 */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 타이포그래피 - Apple 스타일 */
+h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    color: var(--text-color);
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--text-color);
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--text-color);
+}
+
+p {
+    font-size: 17px;
+    margin-bottom: 20px;
+    letter-spacing: -0.022em;
+    color: var(--secondary-color);
+}
+
+ul, ol {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom: 12px;
+    font-size: 17px;
+    letter-spacing: -0.022em;
+    color: var(--secondary-color);
+}
+
+strong {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* 특별 스타일 클래스 - Apple 특유의 목록 스타일 */
+.feature-list {
+    list-style-type: none;
+    margin-left: 0;
+}
+
+.feature-list li {
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.feature-list li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+}
+
+/* Apple 스타일 예시 박스 */
+.typography-example {
+    background-color: var(--light-gray);
+    padding: 30px;
+    border-radius: 18px;
+    margin-top: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.text-large {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.text-medium {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.text-small {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+}
+
+/* 이미지 스타일 - Apple 이미지 스타일 */
+.image-slide img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin: 30px 0;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.contact-info {
+    color: var(--dark-gray);
+    font-size: 14px;
+    margin-top: 40px;
+    letter-spacing: -0.01em;
+}
+
+/* 테이블 스타일 - Apple 스타일 */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 20px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 500;
+    text-align: left;
+    padding: 15px;
+    font-size: 16px;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 15px;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(245, 245, 247, 0.5);
+}
+
+/* 네비게이션 버튼 스타일 */
+.slide-navigation {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    gap: 20px;
+}
+
+.nav-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 980px; /* Apple 버튼 스타일 */
+    transition: all 0.2s ease;
+    text-align: center;
+    letter-spacing: -0.01em;
+}
+
+.nav-button:hover {
+    background-color: var(--highlight-color);
+    transform: scale(1.02);
+}
+
+.home-button {
+    background-color: var(--light-gray);
+    color: var(--text-color);
+}
+
+.home-button:hover {
+    background-color: #e5e5e7;
+}
+
+/* 메인 페이지 영웅 섹션 - Apple 스타일 */
+.hero-section {
+    padding: 60px 0;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.hero-section h1 {
+    font-size: 56px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 28px;
+    line-height: 1.35;
+    color: var(--secondary-color);
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+/* 토픽 그리드 - Apple 스타일 카드 레이아웃 */
+.topic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 60px 0;
+}
+
+.topic-card {
+    background-color: white;
+    border-radius: 18px;
+    padding: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.topic-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.topic-icon {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background-color: var(--light-gray);
+    border-radius: 16px;
+}
+
+.topic-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.topic-card p {
+    font-size: 15px;
+    color: var(--secondary-color);
+    margin-bottom: 0;
+    flex-grow: 1;
+}
+
+/* 행동 유도 섹션 - Apple 스타일 버튼 */
+.cta-section {
+    text-align: center;
+    margin: 60px 0 40px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 16px 32px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 17px;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 980px;
+    transition: all 0.2s ease;
+    letter-spacing: -0.01em;
+}
+
+.cta-button:hover {
+    background-color: var(--highlight-color);
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 113, 227, 0.2);
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+    .slide-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .table-of-contents {
+        margin-top: 20px;
+        width: 100%;
+    }
+    
+    .table-of-contents ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    h1 {
+        font-size: 32px;
+    }
+    
+    h2 {
+        font-size: 24px;
+    }
+    
+    .slide-navigation {
+        flex-direction: column;
+    }
+    
+    .hero-section h1 {
+        font-size: 36px;
+    }
+    
+    .hero-subtitle {
+        font-size: 20px;
+    }
+    
+    .topic-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .topic-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+} 

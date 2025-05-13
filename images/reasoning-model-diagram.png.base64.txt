@@ -1,0 +1,14 @@
+The base64 encoding of the PNG file would be here. However, since this would be a very long string that would be impractical to include in this chat, you would need to:
+
+1. Convert the SVG file to PNG using a converter tool
+2. Place the PNG file in the llm-lecture/images/ directory
+
+For now, you can use the SVG file (reasoning-model-diagram.svg) or the HTML version (reasoning-model-diagram.html) that we've created as a reference for the diagram until you create the actual PNG file.
+
+To use the SVG file directly in your HTML, you can modify the image tag in topic3.html to:
+
+```html
+<img src="images/reasoning-model-diagram.svg" alt="추론모델 답변 과정 개념도" style="max-width: 100%; height: auto;">
+```
+
+This will reference the SVG file directly instead of a PNG file. 
